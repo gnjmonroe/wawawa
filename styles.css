@@ -1,9 +1,12 @@
+:root {
+  --map-size: 12rem;
+}
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   color: white;
-  font-family: 'Pretendard';
+  font-family: 'Pretendard', sans-serif;
 }
 html {
   height: 100%;
@@ -27,21 +30,23 @@ h1 {
   width: fit-content;
   display: grid;
   padding: 5rem;
-  grid-template-columns: 10rem 10rem 10rem 10rem 10rem 10rem;
-  grid-template-rows: 10rem 10rem 10rem;
-  gap: 3rem;
+  grid-template-columns: var(--map-size) var(--map-size) var(--map-size) var(--map-size) var(--map-size) var(--map-size);
+  grid-template-rows: var(--map-size) var(--map-size) var(--map-size);
+  gap: 2rem;
 }
 .park {
   display: flex;
   flex-direction: column;
   justify-content: center;
   border-radius: 100%;
-  padding: .125rem;
-  width: 11rem;
-  height: 11rem;
+  padding: .5rem;
+  width: var(--map-size);
+  height: var(--map-size);
   background-color: #9BF99F;
   text-align: center;
-  font-size: 1.5rem;
+  font-size: 1.375rem;
+  line-height: 1.15;
+  font-weight: 500;
 }
 .park:hover {
   background-color: yellow;
