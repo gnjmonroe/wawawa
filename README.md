@@ -1,2 +1,2 @@
 # wawawa
-Exhibition site for Domansa's &lt;Wa>
+Exhibition site for Domansa's <Wa>
