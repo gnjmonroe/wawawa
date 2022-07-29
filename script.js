@@ -31,36 +31,35 @@ const ytStreams = [
   'kDaOgSc_flY',
 ]
 
-let player;
-function onYouTubeIframeAPIReady() {
-  player = new YT.Player('stream2', {
-    playerVars: {
-      playsinline: 0
-    },
-    events: {
-      'onReady': onPlayerReady,
-    }
-  })
-}
+var player;
 function onPlayerReady() {
   player.playVideo();
 }
 
+let currentId;
 function handleParkClick() {
-  parks.forEach(park => park.addEventListener('click', e => {
+  parks.forEach(park => park.addEventListener('click', (e) => {
+    console.log(currentId);
+    currentId = e.target.id.substring(4);
     streamModal.classList.toggle('hidden');
-    streams[park.id.substring(4)].classList.toggle('hidden')
+    console.log(currentId);
+    if(streams[currentId].classList.contains('hidden')) {
+      streams[currentId].classList.remove('hidden')
+    }
+    player = new YT.Player(`stream${park.id.substring(4)}`, {
+      playerVars: {
+        'playsinline': 0,
+      },
+      events: {
+        'onReady': onPlayerReady,
+      }
+    })
   }))
 }
 handleParkClick();
 
-returnTarget.addEventListener('click', (player) => {
+returnTarget.addEventListener('click', () => {
   streamModal.classList.toggle('hidden');
-  streams.forEach(stream => {
-    stream.className = 'stream hidden'
-    if (stream.id.substring(6) === '2') {
-      console.log(stream.id.substring(6));
-      player.pauseVideo();
-    };
-  })
+  player.pauseVideo();
+  streams.forEach(stream => stream.classList = 'stream hidden');
 })
