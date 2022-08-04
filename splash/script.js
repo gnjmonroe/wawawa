@@ -66,7 +66,6 @@ arrowR.addEventListener('click', () => {
 })
 html[0].addEventListener('keydown', (e) => {
   e = e || window.event;
-  console.log(e);
   if (e.key == 'ArrowLeft') slidePhotosLeft();
   if (e.key == 'ArrowRight') slidePhotosRight();
 })

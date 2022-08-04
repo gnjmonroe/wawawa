@@ -51,22 +51,26 @@ main {
   height: calc(100% - 3.75rem - 2.125rem);
 }
 main > span {
+  width: clamp(10rem, calc(100% - 40px), 37.5rem);
   display: flex;
   flex-direction: row;
-  max-width: 600px;
   justify-content: space-between;
+  gap: 3.75rem;
 }
-main > h1 {
+main > span > h1,
+main > span > p {
   font-size: 1.3125rem;
   color: var(--primary-color);
+}
+main > span > p {
+  font-family: 'Noto Sans KR', sans-serif;
 }
 .main-content {
   position: relative;
   background-color: var(--secondary-color);
   margin: 1rem 1.25rem;
   aspect-ratio: 1;
-  width: 100%;
-  max-width: 600px;
+  width: clamp(10rem, calc(100% - 40px), 37.5rem);
 }
 .arrow {
   display: flex;
@@ -77,6 +81,7 @@ main > h1 {
   height: var(--arrow-button-diameter);
   background-color: var(--tertiary-color);
   border-radius: 100%;
+  box-shadow: 0 0 10px rgba(255, 68, 56, .25);
 }
 .arrow:hover {
   cursor: pointer;
@@ -98,8 +103,8 @@ main > h1 {
 }
 img {
   position: absolute;
-  max-width: 600px;
   user-select: none;
+  width: clamp(10rem, calc(100%), 37.5rem);
 }
 .active {
   visibility: visible;
