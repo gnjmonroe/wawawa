@@ -98,8 +98,6 @@ main > span > p {
 }
 .images {
   position: relative;
-  /* overflow: hidden; */
-  /* border-radius: 1rem; */
 }
 img {
   position: absolute;
