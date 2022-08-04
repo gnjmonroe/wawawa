@@ -54,6 +54,7 @@ main > span {
   width: clamp(10rem, calc(100% - 40px), 37.5rem);
   display: flex;
   flex-direction: row;
+  max-width: 600px;
   justify-content: space-between;
   gap: 3.75rem;
 }
@@ -70,6 +71,8 @@ main > span > p {
   background-color: var(--secondary-color);
   margin: 1rem 1.25rem;
   aspect-ratio: 1;
+  width: 100%;
+  max-width: 600px;
   width: clamp(10rem, calc(100% - 40px), 37.5rem);
 }
 .arrow {
