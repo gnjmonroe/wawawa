@@ -34,6 +34,7 @@ h1 {
   grid-template-columns: var(--map-size) var(--map-size) var(--map-size) var(--map-size) var(--map-size) var(--map-size);
   grid-template-rows: var(--map-size) var(--map-size) var(--map-size);
   gap: 2rem;
+  z-index: 1;
 }
 .park {
   display: flex;
@@ -43,7 +44,7 @@ h1 {
   padding: .75rem;
   width: var(--map-size);
   height: var(--map-size);
-  background-color: #9bef9f;
+  background-color: #fffdb7;
   text-align: center;
   font-size: 1.25rem;
   line-height: 1;
@@ -102,4 +103,16 @@ iframe {
   position: absolute;
   width: 100%;
   height: 100%;
+}
+svg {
+  position: absolute;
+  width: auto;
+  height: auto;
+  max-height: calc(100vh - 2.5rem);
+  max-width: calc(100vw - 2.5rem);
+}
+.map-fill {
+  fill:#9bef9f;
+  stroke:#f0ff77;
+  stroke-miterlimit:10;
 }
