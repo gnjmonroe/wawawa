@@ -1,11 +1,20 @@
 :root {
   --map-size: 12rem;
+  --park-label-diameter: 20rem;
+  --color-wa: white;
+  --color-water: #5FC7FF;
+  --color-land-fill: #9BEF9F;
+  --color-land-stroke: #F0FF77;
+  --color-text: #222;
+  --color-park-bg: #FCD6E0;
+  --color-text-hover: #F8FF78;
+  --color-park-bg-hover: #FF4730;
+  --color-modal-item-bg: #FFFFA4;
 }
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  color: #FF85CE;
   font-family: 'Pretendard', sans-serif;
 }
 html {
@@ -13,87 +22,113 @@ html {
 }
 body {
   height: 100%;
-  background-color: #5fc7ff;
+  background-color: var(--color-water);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-h1 {
-  width: 100%;
+.wa-banner {
+  width: 14rem;
+  height: 4.5rem;
+  border-radius: 100%;
   text-align: center;
   position: absolute;
   top: 1.5rem;
-  font-size: 6rem;
-  color: white;
-}
-.map {
-  width: fit-content;
-  display: grid;
-  padding: 5rem;
-  grid-template-columns: var(--map-size) var(--map-size) var(--map-size) var(--map-size) var(--map-size) var(--map-size);
-  grid-template-rows: var(--map-size) var(--map-size) var(--map-size);
-  gap: 2rem;
+  font-size: 3rem;
+  font-weight: 700;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: var(--color-park-bg-hover);
+  background-color: var(--color-modal-item-bg);
   z-index: 1;
+}
+p.wa-banner {
+  border: none;
+}
+p.wa-banner:hover {
+  background-color: var(--color-park-bg-hover);
+  color: var(--color-modal-item-bg);
+  cursor: pointer;
 }
 .park {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  border-radius: 100%;
-  padding: .75rem;
-  width: var(--map-size);
-  height: var(--map-size);
-  background-color: #fffdb7;
-  text-align: center;
-  font-size: 1.25rem;
+  fill: var(--color-modal-item-bg);
+}
+text {
+  font-size: 1.75rem;
   line-height: 1;
   font-weight: 600;
+  fill: var(--color-park-bg-hover);
+  text-anchor: middle;
+  alignment-baseline: central;
 }
-.park:hover {
-  background-color: yellow;
-  color: black;
+circle:hover,
+text:hover {
   cursor: pointer;
+}
+g.park-group:hover > .park {
+  fill: var(--color-park-bg-hover);
+}
+g.park-group:hover > text {
+  fill: var(--color-text-hover);
 }
 .stream-modal {
   z-index: 10;
   position: absolute;
   width: 100vw;
   height: 100vh;
-  background-color: #ffaed0;
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.blur {
+  filter: blur(1.25rem);
+}
+.park-labels {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  transform: translateX(calc(-1 * (22px + 2rem)));
+}
+.park-label {
+  width: var(--park-label-diameter);
+  height: var(--park-label-diameter);
+  border-radius: 100%;
+  border: none;
+  background-color: var(--color-modal-item-bg);
+  color: var(--color-park-bg-hover);
+  font-size: 2.25rem;
+  font-weight: 600;
+  letter-spacing: -1.5px;
+  padding: 1.75rem;
 }
 .hidden {
   display: none;
 }
-.infobar {
-  z-index: 2;
-  margin: 2rem;
-  width: 100%;
-  height: fit-content;
-  position: relative;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  gap: 2rem;
-}
 .return {
-  width: 5rem;
-  height: 5rem;
+  z-index: 2;
+  position: relative;
+  width: 4.5rem;
+  height: 4.5rem;
+  padding: .5rem;
   border-radius: 100%;
-  background-color: #9BF99F;
+  background-color: var(--color-modal-item-bg);
   display: flex;
   justify-content: center;
   align-items: center;
+  fill: var(--color-park-bg-hover);
 }
-.return > svg {
-  fill: #FF85CE;
-}
+.park-label:hover,
 .return:hover {
-  background-color: yellow;
-}
-.return:hover > svg {
-  fill: black;
+  background-color: var(--color-park-bg-hover);
+  fill: var(--color-modal-item-bg);
+  color: var(--color-modal-item-bg);
+  cursor: pointer;
 }
 h2 {
   font-size: 3rem;
@@ -112,7 +147,8 @@ svg {
   max-width: calc(100vw - 2.5rem);
 }
 .map-fill {
-  fill:#9bef9f;
-  stroke:#f0ff77;
+  fill: var(--color-land-fill);
+  stroke: var(--color-land-stroke);
+  stroke-width: 1.5px;
   stroke-miterlimit:10;
 }
