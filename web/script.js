@@ -82,7 +82,7 @@ function transitionColors() {
   } else if (water.style.backgroundColor === lwColors[2]) {
     water.style.backgroundColor = lwColors[0];
   }
-  setTimeout(transitionColors, 6000);
+  setTimeout(transitionColors, 10000);
 }
 
 // document.addEventListener('DOMContentLoaded', transitionColors);
