@@ -10,6 +10,14 @@
   --color-text-hover: #F8FF78;
   --color-park-bg-hover: #FF4730;
   --color-modal-item-bg: #FFFFA4;
+  --test-color-park-fill: white;
+  --test-color-park-stroke: black;
+  /* --test-color-bg-0: rgb(166, 175, 234);
+  --test-color-bg-1: rgb(159, 255, 185);
+  --test-color-bg-2: rgb(255, 246, 122); */
+  --test-color-bg-0: #A6AFEA;
+  --test-color-bg-1: #9FFFB9;
+  --test-color-bg-2: #FFF67A;
 }
 * {
   margin: 0;
@@ -22,11 +30,12 @@ html {
 }
 body {
   height: 100%;
-  background-color: var(--color-water);
+  background-color: var(--test-color-bg-1);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  transition: background-color 1s ease-out;
 }
 .wa-banner {
   width: 14rem;
@@ -41,12 +50,13 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  color: var(--color-park-bg-hover);
-  background-color: var(--color-modal-item-bg);
+  color: var(--color-modal-item-bg);
+  background-color: var(--color-park-bg-hover);
   z-index: 1;
 }
 p.wa-banner {
-  border: none;
+  color: var(--color-park-bg-hover);
+  background-color: var(--color-modal-item-bg);
 }
 p.wa-banner:hover {
   background-color: var(--color-park-bg-hover);
@@ -57,19 +67,16 @@ p.wa-banner:hover {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  fill: var(--color-modal-item-bg);
-  stroke: var(--color-park-bg-hover);
-  stroke-width:2.5;
-  stroke-linecap:round;
-  stroke-miterlimit:10;
-  stroke-dasharray:12.5559,12.5559;
+  fill: var(--test-color-park-fill);
+  stroke: var(--test-color-park-stroke);
+  stroke-width:2;
   r: 8;
 }
 text {
   font-size: .875rem;
   line-height: 1;
   font-weight: 600;
-  fill: var(--color-park-bg-hover);
+  fill: var(--test-color-park-stroke);
   text-anchor: left;
   alignment-baseline: central;
 }
@@ -82,11 +89,12 @@ text:hover {
   cursor: pointer;
 }
 g.park-group:hover > .park {
-  fill: var(--color-park-bg-hover);
-  stroke: var(--color-modal-item-bg);
+  /* fill: var(--color-park-bg-hover); */
+  stroke: var(--color-park-bg-hover);
+  transition: none;
 }
 g.park-group:hover > text {
-  fill: var(--color-text-hover);
+  fill: var(--color-park-bg-hover);
 }
 .stream-modal {
   z-index: 10;
@@ -159,10 +167,8 @@ svg {
   max-width: calc(100vw - 2.5rem);
 }
 .map-fill {
-  fill: var(--color-land-fill);
-  stroke: var(--color-land-stroke);
-  stroke-width: 1.5px;
-  stroke-miterlimit:10;
+  fill: var(--test-color-bg-0);
+  transition: fill 1s ease-out;
 }
 .st0{
   fill:#FFFFA4;

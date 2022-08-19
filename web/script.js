@@ -6,10 +6,13 @@ const parkLabelsDiv = document.getElementsByClassName('park-labels')[0];
 const streamModal = document.getElementById('streamModal');
 const returnTarget = document.getElementById('return');
 const dorawa = document.getElementById('dorawa');
-
 const waBanner = document.getElementById('wa-banner');
 const mainSvg = document.getElementById('main-svg');
+const land = Array.prototype.slice.call(document.getElementsByClassName('map-fill'));
+const water = document.getElementsByTagName('body')[0];
 
+const lwColors = ['rgb(159, 255, 185)', 'rgb(166, 175, 234)', 'rgb(255, 246, 122)']
+// const lwColors = ['#9FFFB9', '#A6AFEA', '#FFF67A']
 const regexGetIdNumber = /\d+$/;
 
 var tag = document.createElement('script');
@@ -58,6 +61,31 @@ let localPlayerInitCount = [
   0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 ]
 
+function transitionColors() {
+  // transition land color
+  if (land[0].style.fill === '') {
+    land.forEach(landFill => landFill.style.fill = lwColors[0]);
+  } else if (land[0].style.fill === lwColors[0]) {
+    land.forEach(landFill => landFill.style.fill = lwColors[1]);
+  } else if (land[0].style.fill === lwColors[1]) {
+    land.forEach(landFill => landFill.style.fill = lwColors[2]);
+  } else if (land[0].style.fill === lwColors[2]) {
+    land.forEach(landFill => landFill.style.fill = lwColors[0]);
+  }
+  // transition water color
+  if (water.style.backgroundColor === '') {
+    water.style.backgroundColor = lwColors[1];
+  } else if (water.style.backgroundColor === lwColors[0]) {
+    water.style.backgroundColor = lwColors[1];
+  } else if (water.style.backgroundColor === lwColors[1]) {
+    water.style.backgroundColor = lwColors[2];
+  } else if (water.style.backgroundColor === lwColors[2]) {
+    water.style.backgroundColor = lwColors[0];
+  }
+  setTimeout(transitionColors, 5000);
+}
+
+// document.addEventListener('DOMContentLoaded', transitionColors);
 function toggleStreamModal() {
   streamModal.classList.toggle('hidden');
   waBanner.classList.toggle('blur');
@@ -127,3 +155,4 @@ function addParkGroupClickListener() {
   parkGroups.forEach(parkGroup => parkGroup.addEventListener('click', handleParkGroupClick))
 }
 addParkGroupClickListener();
+transitionColors();
