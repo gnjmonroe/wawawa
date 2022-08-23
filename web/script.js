@@ -36,7 +36,11 @@ let player0,
   player13,
   player14,
   player15,
-  player16;
+  player16,
+  player17,
+  player18,
+  player19,
+  player20;
 var players = [
   player0,
   player1,
@@ -55,10 +59,12 @@ var players = [
   player14,
   player15,
   player16,
+  player17,
+  player18,
+  player19,
+  player20,
 ];
-let localPlayerInitCount = [
-  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
-]
+let localPlayerInitCount = new Array(players.length).fill(0);
 
 function transitionColors() {
   // transition land color
@@ -130,7 +136,7 @@ returnTarget.addEventListener('click', () => {
 
 function handleParkGroupClick(e) {
   currentId = e.target.id.match(regexGetIdNumber)[0];
-  if (Number(currentId) >= 0 && Number(currentId) <= 16) {
+  if (Number(currentId) >= 0 && Number(currentId) <= players.length - 1) {
     toggleStreamModal();
     currentLabelId = e.target.id.match(regexGetIdNumber)[0];
   if(streams[currentLabelId].classList.contains('hidden')) {
@@ -147,6 +153,7 @@ function handleParkGroupClick(e) {
     players[currentLabelId].playVideo();
   }
   localPlayerInitCount[currentLabelId] += 1;
+  console.log(localPlayerInitCount);
   }
 }
 
