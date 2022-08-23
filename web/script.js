@@ -11,8 +11,7 @@ const mainSvg = document.getElementById('main-svg');
 const land = Array.prototype.slice.call(document.getElementsByClassName('map-fill'));
 const water = document.getElementsByTagName('body')[0];
 
-const lwColors = ['rgb(159, 255, 185)', 'rgb(166, 175, 234)', 'rgb(255, 246, 122)']
-// const lwColors = ['#9FFFB9', '#A6AFEA', '#FFF67A']
+const lwColors = ['rgb(255, 246, 122)', 'rgb(159, 255, 185)', 'rgb(166, 175, 234)']
 const regexGetIdNumber = /\d+$/;
 
 var tag = document.createElement('script');
