@@ -1,0 +1,433 @@
+/* Variables */
+:root {
+  --color-hover: rgb(255, 186, 66);
+  --color-border: grey;
+  --utc-color-0: #ABFFD5;
+  --utc-color-1: #FFD1E8;
+  --utc-color-2: #E4FF99;
+  --utc-color-3: #FFE299;
+  --utc-color-4: #FFBAB3;
+  --utc-color-5: #C0F8FF;
+  --utc-color-6: #B6FFA9;
+  --utc-color-7: #EEFFBF;
+  --utc-color-8: #FFFE85;
+  --utc-color-9: #EBD1FF;
+}
+
+/* Piccadilly CSS Reset */
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  font-family: 'Pretendard';
+  color: #333;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+html {
+  height: 100%;
+}
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  /* min-height: 100vh; */
+  height: 100%;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+   scroll-behavior: auto;
+  }
+  
+  /* *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  } */
+}
+
+/* Core CSS */
+.hidden {
+  display: none;
+}
+.stream-modal {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+}
+.back-button {
+  position: absolute;
+  top: 1rem;
+  left: 50%;
+  transform: translate(-50%);
+  background-color: blue;
+  z-index: 5;
+  width: 8rem;
+  border-radius: 100%;
+  color: #FFFFA4;
+  background-color: #FF4730;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+}
+.back-button:hover {
+  background-color: #FFFFA4;
+  color: #FF4730;
+}
+iframe {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+header {
+  /* background-color: white; */
+  width: 100%;
+  /* border-bottom: solid 1px var(--color-border); */
+  display: flex;
+  position: absolute;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: .5rem calc((100% - 93rem) / 2);
+}
+header > * {
+  font-size: 2rem;
+}
+h1 {
+  width: calc(21rem * .9);
+  height: calc(10.5rem * .9);
+  margin-right: calc(21rem * .1);
+  border: solid 1px #FF4730;
+  border-radius: 100%;
+  background-color: #FFFFA4;
+  color: #FF4730;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 5rem;
+  transition: all .6s;
+  transform: rotate(4deg);
+}
+h1:hover {
+  border: solid 1px #FFFFA4;
+  color: #FFFFA4;
+  background-color: #FF4730;
+}
+svg {
+  margin: 0;
+  scale: .75;
+  /* width: 75%; */
+}
+.to-domansa {
+  width: calc(21rem * .9);
+  height: calc(10.5rem * .9);
+  margin-right: calc(21rem * .1);
+  border-radius: 100%;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: calc(1px * .25);
+  border: solid 1px grey;
+  text-decoration: none;
+  transform: rotate(4deg);
+  transition: all .6s;
+  line-height: 1;
+}
+.to-domansa:hover {
+  background-color: grey;
+  color: white;
+}
+
+main {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  height: 100%;
+  background: url(images/bg-2-o40.png);
+  background-size: cover;
+}
+.park {
+  width: 21rem;
+  height: 10.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.park:hover {
+  /* background-color: var(--color-hover); */
+  cursor: pointer;
+}
+.rounded-outline {
+  transition: all .6s, background-image 1s;
+  background: url(images/white.png);
+  border-radius: 100%;
+  padding: .5rem;
+  width: 90%;
+  height: 90%;
+  border: solid 1px var(--color-border);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transform: rotate(4deg);
+}
+.park:hover > .rounded-outline {
+  transform: rotate(0deg);
+  border-radius: .75rem;
+  padding: .375rem;
+  width: 100%;
+  height: 100%;
+}
+.park:hover > .rounded-outline > .center-line > h2,
+.park:hover > .rounded-outline > .center-line > p {
+  color: #fffa99;
+}
+#outline-0:hover {
+  background: url(images/park-0.png);
+  background-size: cover;
+  background-position: center;
+}
+#outline-1:hover {
+  background: url(images/park-1.png);
+  background-size: cover;
+  background-position: center;
+}
+#outline-2:hover {
+  background: url(images/park-2.png);
+  background-size: cover;
+  background-position: center;
+}
+#outline-3:hover {
+  background: url(images/park-3.png);
+  background-size: cover;
+  background-position: center;
+}
+#outline-4:hover {
+  background: url(images/park-4.png);
+  background-size: cover;
+  background-position: center;
+}
+#outline-5:hover {
+  background: url(images/park-5.png);
+  background-size: cover;
+  background-position: center;
+}
+#outline-6:hover {
+  background: url(images/park-6.png);
+  background-size: cover;
+  background-position: center;
+}
+#outline-7:hover {
+  background: url(images/park-7.png);
+  background-size: cover;
+  background-position: center;
+}
+#outline-8:hover {
+  background: url(images/park-8.png);
+  background-size: cover;
+  background-position: center;
+}
+#outline-9:hover {
+  background: url(images/park-9.png);
+  background-size: cover;
+  background-position: center;
+}
+#outline-10:hover {
+  background: url(images/park-10.png);
+  background-size: cover;
+  background-position: center;
+}
+#outline-11:hover {
+  background: url(images/park-11.png);
+  background-size: cover;
+  background-position: center;
+}
+#outline-12:hover {
+  background: url(images/park-12.png);
+  background-size: cover;
+  background-position: center;
+}
+#outline-13:hover {
+  background: url(images/park-13.png);
+  background-size: cover;
+  background-position: center;
+}
+#outline-14:hover {
+  background: url(images/park-14.png);
+  background-size: cover;
+  background-position: center;
+}
+#outline-15:hover {
+  background: url(images/park-15.png);
+  background-size: cover;
+  background-position: center;
+}
+#outline-16:hover {
+  background: url(images/park-16.png);
+  background-size: cover;
+  background-position: center;
+}
+#outline-17:hover {
+  background: url(images/park-17.png);
+  background-size: cover;
+  background-position: center;
+}
+#outline-18:hover {
+  background: url(images/park-18.png);
+  background-size: cover;
+  background-position: center;
+}
+#outline-19:hover {
+  background: url(images/park-19.png);
+  background-size: cover;
+  background-position: center;
+}
+#outline-20:hover {
+  background: url(images/park-20.png);
+  background-size: cover;
+  background-position: center;
+}
+
+.top-line {
+  display: flex;
+  flex-direction: row;
+  gap: .25rem;
+}
+.badge, .sun-status {
+  padding: 0px 4px;
+  font-size: .825rem;
+  font-weight: 300;
+  width: fit-content;
+  border: solid 1px grey;
+  background-color: white;
+  border-radius: 4px;
+}
+.local-time, .utc {
+  color: grey;
+}
+.sun-status {
+  background-color: white;
+  color: grey;
+  min-width: 1.5rem;
+  text-align: center;
+}
+.sun-status.sun-up {
+  background: rgb(255,255,209);
+  background: linear-gradient(0deg, rgba(255,255,209,1) 0%, rgba(244,222,110,1) 100%);
+}
+.sun-status.sun-down {
+  color: #e7e7e7;
+  background: rgb(146,109,201);
+  background: linear-gradient(0deg, rgba(146,109,201,1) 0%, rgba(37,69,117,1) 100%);
+}
+.sun-status.sun-golden {
+  background-color: gold;
+  color: orangered;
+  border: solid 1px orangered;
+  font-weight: bold;
+}
+.utc-1 {
+  background-color: var(--utc-color-0);
+}
+.utc-2 {
+  background-color: var(--utc-color-1);
+}
+.utc-7 {
+  background-color: var(--utc-color-2);
+}
+.utc-8 {
+  background-color: var(--utc-color-3);
+}
+.utc-9 {
+  background-color: var(--utc-color-4);
+}
+.utc--3 {
+  background-color: var(--utc-color-5);
+}
+.utc--5 {
+  background-color: var(--utc-color-6);
+}
+.utc--7 {
+  background-color: var(--utc-color-7);
+}
+.utc--8 {
+  background-color: var(--utc-color-8);
+}
+.utc--9 {
+  background-color: var(--utc-color-9);
+}
+.center-line {
+  text-align: center;
+}
+h2 {
+  font-size: 1.75rem;
+  line-height: 1;
+  color: #111;
+}
+.center-line > p {
+  font-size: .825rem;
+}
+.bottom-line {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  width: 100%;
+}
