@@ -2,8 +2,8 @@ const timeTest = document.getElementById('time-test');
 const parks = Array.prototype.slice.call(document.getElementsByClassName('park'));
 const workingDate = new Date();
 
-const sunStatuses = parks.map(park => park.children[0].children[0].children[0]);
-const localTimes = parks.map(park => park.children[0].children[0].children[1]);
+const sunStatuses = parks.map(park => park.children[0].children[1].children[0]);
+const localTimes = parks.map(park => park.children[0].children[1].children[1]);
 
 const parkCoords = parks.map(park => [
   park.dataset.lat,
@@ -47,6 +47,13 @@ function determineSunStatus (localTime, sunriseTime, sunsetTime) {
   }
   return 'else'
 }
+function setSunRayX (sunRayName, x1, y1, x2, y2, sunIconSvg) {
+  sunRayName.setAttribute("x1",`${x1}`);
+  sunRayName.setAttribute("y1",`${y1}`);
+  sunRayName.setAttribute("x2",`${x2}`);
+  sunRayName.setAttribute("y2",`${y2}`);
+  sunIconSvg.appendChild(sunRayName);
+}
 function logTimeSunriseSunset(apiData) {
   for (let i=0; i<apiData.length; i++) {
     const localTimeString = localTimes[i].textContent;
@@ -54,24 +61,59 @@ function logTimeSunriseSunset(apiData) {
     const sunsetString = apiData[i].sunset.match(/\d+:\d+$/g)[0];
     const sunStatus = determineSunStatus(localTimeString, sunriseString, sunsetString);
     if (sunStatus === 'up') {
+      let sunIcon = document.createElementNS("http://www.w3.org/2000/svg", 'svg');
+      sunIcon.setAttribute("width", "16")
+      sunIcon.setAttribute("height", "16")
+      sunIcon.setAttribute("viewbox", "0 0 16 16")
+      sunIcon.setAttribute("xmlns", "http://www.w3.org/2000/svg")
+      sunIcon.setAttribute("xmlns:xlink", "http://www.w3.org/1999/xlink")
+      let sunCircle = document.createElementNS("http://www.w3.org/2000/svg", 'circle');
+      let sunRay0 = document.createElementNS("http://www.w3.org/2000/svg", 'line');
+      let sunRay1 = document.createElementNS("http://www.w3.org/2000/svg", 'line');
+      let sunRay2 = document.createElementNS("http://www.w3.org/2000/svg", 'line');
+      let sunRay3 = document.createElementNS("http://www.w3.org/2000/svg", 'line');
+      let sunRay4 = document.createElementNS("http://www.w3.org/2000/svg", 'line');
+      let sunRay5 = document.createElementNS("http://www.w3.org/2000/svg", 'line');
+      let sunRay6 = document.createElementNS("http://www.w3.org/2000/svg", 'line');
+      let sunRay7 = document.createElementNS("http://www.w3.org/2000/svg", 'line');
+      sunCircle.setAttribute("cx", "8");
+      sunCircle.setAttribute("cy", "8");
+      sunCircle.setAttribute("r", "4.5");
+      sunIcon.appendChild(sunCircle);
+      setSunRayX(sunRay0, 13.7, 13.7, 12.2, 12.2, sunIcon);
+      setSunRayX(sunRay1, 3.8, 3.8, 2.3, 2.3, sunIcon);
+      setSunRayX(sunRay2, 16, 8, 14, 8, sunIcon);
+      setSunRayX(sunRay3, 2, 8, 0, 8, sunIcon);
+      setSunRayX(sunRay4, 13.7, 2.3, 12.2, 3.8, sunIcon);
+      setSunRayX(sunRay5, 3.8, 12.2, 2.3, 13.7, sunIcon);
+      setSunRayX(sunRay6, 8, 0, 8, 2, sunIcon);
+      setSunRayX(sunRay7, 8, 14, 8, 16, sunIcon);
       sunStatuses[i].classList.add('sun-up');
-      sunStatuses[i].textContent = '↑'
+      sunStatuses[i].textContent = '';
+      sunStatuses[i].appendChild(sunIcon);
     } else if (sunStatus === 'down') {
       sunStatuses[i].classList.add('sun-down');
-      sunStatuses[i].textContent = '↓'
+      sunStatuses[i].textContent = '';
+      let moonIcon = document.createElementNS("http://www.w3.org/2000/svg", 'svg');
+      moonIcon.setAttribute("width", "12");
+      moonIcon.setAttribute("height", "12");
+      moonIcon.setAttribute("viewbox", "0 0 12 12");
+      moonIcon.setAttribute("xmlns", "http://www.w3.org/2000/svg");
+      moonIcon.setAttribute("xmlns:xlink", "http://www.w3.org/1999/xlink");
+      let moonPath = document.createElementNS("http://www.w3.org/2000/svg", 'path');
+      moonPath.setAttribute("d", "M9.3,9.1C6,9.1,3.2,6.4,3.2,3c0-1.1,0.3-2.1,0.8-3C1.7,0.9,0.1,3.2,0.1,5.8c0,3.4,2.8,6.2,6.2,6.2c2.4,0,4.6-1.4,5.6-3.5C11.1,8.9,10.3,9.1,9.3,9.1z");
+      moonIcon.appendChild(moonPath);
+      sunStatuses[i].appendChild(moonIcon);
     } else if (sunStatus === 'golden') {
       sunStatuses[i].classList.add('sun-golden');
-      sunStatuses[i].textContent = 'Golden Hour'
+      sunStatuses[i].textContent = 'Golden Hour';
     }
   }
 }
 async function getApiData() {
   // call API
   let promiseArray = [];
-  console.log("awaiting");
   const apiData = await callApi(promiseArray);
-  console.log(apiData);
-  console.log('awaited');
   // do sun-status stuff here
   logTimeSunriseSunset(apiData);
 }

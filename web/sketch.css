@@ -2,16 +2,16 @@
 :root {
   --color-hover: rgb(255, 186, 66);
   --color-border: grey;
-  --utc-color-0: #ABFFD5;
-  --utc-color-1: #FFD1E8;
-  --utc-color-2: #E4FF99;
-  --utc-color-3: #FFE299;
-  --utc-color-4: #FFBAB3;
-  --utc-color-5: #C0F8FF;
-  --utc-color-6: #B6FFA9;
-  --utc-color-7: #EEFFBF;
-  --utc-color-8: #FFFE85;
-  --utc-color-9: #EBD1FF;
+  --utc-foliage-color-0: #ffffa4;
+  --utc-foliage-color-1: #eb562c;
+  --utc-foliage-color-2: #fbc861;
+  --utc-foliage-color-3: #491c1d;
+  --utc-foliage-color-4: #b6482d;
+  --utc-foliage-color-5: #321514;
+  --utc-foliage-color-6: #7d301d;
+  --utc-foliage-color-7: #fad79f;
+  --utc-foliage-color-8: #ad292a;
+  --utc-foliage-color-9: #9a1c25;
 }
 
 /* Piccadilly CSS Reset */
@@ -85,15 +85,6 @@ select {
   html:focus-within {
    scroll-behavior: auto;
   }
-  
-  /* *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  } */
 }
 
 /* Core CSS */
@@ -104,7 +95,7 @@ select {
   position: fixed;
   width: 100vw;
   height: 100vh;
-  z-index: 1;
+  z-index: 2;
 }
 .back-button {
   position: absolute;
@@ -130,302 +121,357 @@ iframe {
   width: 100%;
   height: 100%;
 }
-header {
-  /* background-color: white; */
-  width: 100%;
-  /* border-bottom: solid 1px var(--color-border); */
-  display: flex;
-  position: absolute;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  padding: .5rem calc((100% - 93rem) / 2);
-}
-header > * {
-  font-size: 2rem;
-}
-h1 {
-  width: calc(21rem * .9);
-  height: calc(10.5rem * .9);
-  margin-right: calc(21rem * .1);
-  border: solid 1px #FF4730;
-  border-radius: 100%;
-  background-color: #FFFFA4;
-  color: #FF4730;
+.wa {
+  width: 18rem;
+  height: 10rem;
   text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  font-size: 5rem;
+  align-items: center;
+}
+.wa svg {
+  transform: translate(0, 8px);
+}
+.wa path {
+  z-index: 0;
+  fill: #FF4730;
   transition: all .6s;
-  transform: rotate(4deg);
 }
-h1:hover {
-  border: solid 1px #FFFFA4;
+h1 {
   color: #FFFFA4;
-  background-color: #FF4730;
+  font-size: 1.5rem;
+  font-weight: 700;
+  transition: all .6s;
+  z-index: 1;
 }
-svg {
-  margin: 0;
-  scale: .75;
-  /* width: 75%; */
+.wa:hover path {
+  fill: #FFFFA4;
+  stroke: none;
+  stroke-width: 0;
+}
+.wa:hover h1 {
+  color: #FF4730;
+  /* color: #FFFFA4; */
+  user-select: none;
 }
 .to-domansa {
-  width: calc(21rem * .9);
-  height: calc(10.5rem * .9);
-  margin-right: calc(21rem * .1);
-  border-radius: 100%;
-  background-color: white;
+  width: 18rem;
+  height: 10rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   font-size: 1rem;
   font-weight: 700;
-  letter-spacing: calc(1px * .25);
-  border: solid 1px grey;
   text-decoration: none;
-  transform: rotate(4deg);
+}
+#domansa-svg {
+  transform: translate(0, 8px);
+  position: absolute;
+  z-index: 0;
+}
+.to-domansa path {
+  fill: black;
   transition: all .6s;
-  line-height: 1;
 }
-.to-domansa:hover {
-  background-color: grey;
-  color: white;
+.to-domansa p {
+  display: block;
+  color: #fff;
+  z-index: 1;
 }
-
+.to-domansa:hover path {
+  fill: #fff;
+}
+.to-domansa:hover p {
+  color: black;
+}
+test:hover path {
+  /* transform: translate(-60,0); */
+  /* d: path("m0,12 c0,-6.52055 5.47945,-12 12,-12 l216,0 c6.52055,0 12,5.47945 12,12 l0,111 c0,6.52055 -5.47945,12 -12,12 l-216,0 c-6.52055,0 -12,-5.47945 -12,-12z"); */
+  /* d: path("m0,12 l12,-12 l216,0 l12,12 l0,111 l-12,12 l-216,0 l-12,-12z"); */
+  d: path("m0,0 l120,0 l120,0 l0,135 l-120,0 l-120,0z");
+  fill: url(#img1);
+}
+.bg-svg {
+  transform: translate(16px, 12px);
+  position: absolute;
+  z-index: 0;
+}
+.bg-path {
+  fill: #FFFFA4;
+  stroke-width: 1;
+  transition: all .6s;
+}
+.park:hover .bg-svg {
+  width: 18rem;
+  height: 10rem;
+  transform: translate(-8px, -8px);
+}
+.park[data-park-group="0"]:hover .bg-path {
+  d: path("m0,0 l120,0 l120,0 l0,135 l-120,0 l-120,0z");
+  fill: url(#bg-pattern-0);
+}
+.park[data-park-group="1"]:hover .bg-path {
+  d: path("m0,0 l120,0 l120,0 l0,135 l-120,0 l-120,0z");
+  fill: url(#bg-pattern-1);
+}
+.park[data-park-group="2"]:hover .bg-path {
+  d: path("m0,0 l120,0 l120,0 l0,135 l-120,0 l-120,0z");
+  fill: url(#bg-pattern-2);
+}
+.park[data-park-group="3"]:hover .bg-path {
+  d: path("m0,0 l120,0 l120,0 l0,135 l-120,0 l-120,0z");
+  fill: url(#bg-pattern-3);
+}
+.park[data-park-group="4"]:hover .bg-path {
+  d: path("m0,0 l120,0 l120,0 l0,135 l-120,0 l-120,0z");
+  fill: url(#bg-pattern-4);
+}
+.park[data-park-group="5"]:hover .bg-path {
+  d: path("m0,0 l120,0 l120,0 l0,135 l-120,0 l-120,0z");
+  fill: url(#bg-pattern-5);
+}
+.park[data-park-group="6"]:hover .bg-path {
+  d: path("m0,0 l120,0 l120,0 l0,135 l-120,0 l-120,0z");
+  fill: url(#bg-pattern-6);
+}
+.park[data-park-group="7"]:hover .bg-path {
+  d: path("m0,0 l120,0 l120,0 l0,135 l-120,0 l-120,0z");
+  fill: url(#bg-pattern-7);
+}
+.park[data-park-group="8"]:hover .bg-path {
+  d: path("m0,0 l120,0 l120,0 l0,135 l-120,0 l-120,0z");
+  fill: url(#bg-pattern-8);
+}
+.park[data-park-group="9"]:hover .bg-path {
+  d: path("m0,0 l120,0 l120,0 l0,135 l-120,0 l-120,0z");
+  fill: url(#bg-pattern-9);
+}
+.park[data-park-group="10"]:hover .bg-path {
+  d: path("m0,0 l120,0 l120,0 l0,135 l-120,0 l-120,0z");
+  fill: url(#bg-pattern-10);
+}
+.park[data-park-group="11"]:hover .bg-path {
+  d: path("m0,0 l120,0 l120,0 l0,135 l-120,0 l-120,0z");
+  fill: url(#bg-pattern-11);
+}
+.park[data-park-group="12"]:hover .bg-path {
+  d: path("m0,0 l120,0 l120,0 l0,135 l-120,0 l-120,0z");
+  fill: url(#bg-pattern-12);
+}
+.park[data-park-group="13"]:hover .bg-path {
+  d: path("m0,0 l120,0 l120,0 l0,135 l-120,0 l-120,0z");
+  fill: url(#bg-pattern-13);
+}
+.park[data-park-group="14"]:hover .bg-path {
+  d: path("m0,0 l120,0 l120,0 l0,135 l-120,0 l-120,0z");
+  fill: url(#bg-pattern-14);
+}
+.park[data-park-group="15"]:hover .bg-path {
+  d: path("m0,0 l120,0 l120,0 l0,135 l-120,0 l-120,0z");
+  fill: url(#bg-pattern-15);
+}
+.park[data-park-group="16"]:hover .bg-path {
+  d: path("m0,0 l120,0 l120,0 l0,135 l-120,0 l-120,0z");
+  fill: url(#bg-pattern-16);
+}
+.park[data-park-group="17"]:hover .bg-path {
+  d: path("m0,0 l120,0 l120,0 l0,135 l-120,0 l-120,0z");
+  fill: url(#bg-pattern-17);
+}
+.park[data-park-group="18"]:hover .bg-path {
+  d: path("m0,0 l120,0 l120,0 l0,135 l-120,0 l-120,0z");
+  fill: url(#bg-pattern-18);
+}
+.park[data-park-group="19"]:hover .bg-path {
+  d: path("m0,0 l120,0 l120,0 l0,135 l-120,0 l-120,0z");
+  fill: url(#bg-pattern-19);
+}
+.park[data-park-group="20"]:hover .bg-path {
+  d: path("m0,0 l120,0 l120,0 l0,135 l-120,0 l-120,0z");
+  fill: url(#bg-pattern-20);
+}
 main {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  gap: 0;
+  gap: 1rem;
+  padding: 2rem;
   height: 100%;
-  background: url(images/bg-2-o40.png);
+  background: url(images/bg-4-o70.png);
   background-size: cover;
 }
 .park {
-  width: 21rem;
-  height: 10.5rem;
+  width: 18rem;
+  height: 10rem;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .park:hover {
-  /* background-color: var(--color-hover); */
   cursor: pointer;
 }
 .rounded-outline {
   transition: all .6s, background-image 1s;
-  background: url(images/white.png);
-  border-radius: 100%;
   padding: .5rem;
-  width: 90%;
-  height: 90%;
-  border: solid 1px var(--color-border);
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  transform: rotate(4deg);
 }
-.park:hover > .rounded-outline {
-  transform: rotate(0deg);
-  border-radius: .75rem;
-  padding: .375rem;
-  width: 100%;
-  height: 100%;
-}
-.park:hover > .rounded-outline > .center-line > h2,
-.park:hover > .rounded-outline > .center-line > p {
+.park:hover h2,
+.park:hover p {
   color: #fffa99;
+  background-color: transparent;
 }
-#outline-0:hover {
-  background: url(images/park-0.png);
-  background-size: cover;
-  background-position: center;
+.park:hover h2 {
+  display: none;
 }
-#outline-1:hover {
-  background: url(images/park-1.png);
-  background-size: cover;
-  background-position: center;
+.park:hover p {
+  display: block;
 }
-#outline-2:hover {
-  background: url(images/park-2.png);
-  background-size: cover;
-  background-position: center;
+.park:hover .sun-status,
+.park:hover .local-time,
+.park:hover .coordinates {
+  color: #FFFFA4;
+  background-color: transparent;
+  border: solid 1px transparent;
 }
-#outline-3:hover {
-  background: url(images/park-3.png);
-  background-size: cover;
-  background-position: center;
-}
-#outline-4:hover {
-  background: url(images/park-4.png);
-  background-size: cover;
-  background-position: center;
-}
-#outline-5:hover {
-  background: url(images/park-5.png);
-  background-size: cover;
-  background-position: center;
-}
-#outline-6:hover {
-  background: url(images/park-6.png);
-  background-size: cover;
-  background-position: center;
-}
-#outline-7:hover {
-  background: url(images/park-7.png);
-  background-size: cover;
-  background-position: center;
-}
-#outline-8:hover {
-  background: url(images/park-8.png);
-  background-size: cover;
-  background-position: center;
-}
-#outline-9:hover {
-  background: url(images/park-9.png);
-  background-size: cover;
-  background-position: center;
-}
-#outline-10:hover {
-  background: url(images/park-10.png);
-  background-size: cover;
-  background-position: center;
-}
-#outline-11:hover {
-  background: url(images/park-11.png);
-  background-size: cover;
-  background-position: center;
-}
-#outline-12:hover {
-  background: url(images/park-12.png);
-  background-size: cover;
-  background-position: center;
-}
-#outline-13:hover {
-  background: url(images/park-13.png);
-  background-size: cover;
-  background-position: center;
-}
-#outline-14:hover {
-  background: url(images/park-14.png);
-  background-size: cover;
-  background-position: center;
-}
-#outline-15:hover {
-  background: url(images/park-15.png);
-  background-size: cover;
-  background-position: center;
-}
-#outline-16:hover {
-  background: url(images/park-16.png);
-  background-size: cover;
-  background-position: center;
-}
-#outline-17:hover {
-  background: url(images/park-17.png);
-  background-size: cover;
-  background-position: center;
-}
-#outline-18:hover {
-  background: url(images/park-18.png);
-  background-size: cover;
-  background-position: center;
-}
-#outline-19:hover {
-  background: url(images/park-19.png);
-  background-size: cover;
-  background-position: center;
-}
-#outline-20:hover {
-  background: url(images/park-20.png);
-  background-size: cover;
-  background-position: center;
-}
-
 .top-line {
+  z-index: 1;
   display: flex;
   flex-direction: row;
   gap: .25rem;
 }
 .badge, .sun-status {
   padding: 0px 4px;
-  font-size: .825rem;
-  font-weight: 300;
+  font-size: .75rem;
+  font-weight: 500;
   width: fit-content;
-  border: solid 1px grey;
-  background-color: white;
-  border-radius: 4px;
+  background-color: none;
+  border-radius: 3px;
+  color: #fff;
 }
-.local-time, .utc {
-  color: grey;
+.local-time, .coordinates {
+  color: var(--utc-foliage-color-6);
+  background-color: var(--utc-foliage-color-0);
+  border: solid 1px var(--utc-foliage-color-6);
 }
 .sun-status {
-  background-color: white;
-  color: grey;
   min-width: 1.5rem;
   text-align: center;
 }
 .sun-status.sun-up {
   background: rgb(255,255,209);
   background: linear-gradient(0deg, rgba(255,255,209,1) 0%, rgba(244,222,110,1) 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.sun-status.sun-up circle {
+  fill: #f45a07;
+}
+.sun-status.sun-up line {
+  stroke: #f45a07;
 }
 .sun-status.sun-down {
   color: #e7e7e7;
   background: rgb(146,109,201);
   background: linear-gradient(0deg, rgba(146,109,201,1) 0%, rgba(37,69,117,1) 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.sun-status.sun-down path {
+  fill: rgb(254, 255, 180);
 }
 .sun-status.sun-golden {
-  background-color: gold;
-  color: orangered;
-  border: solid 1px orangered;
+  background-color: rgb(255, 187, 0);
+  color: #FF4730;
+  border: solid 1px #FF4730;
   font-weight: bold;
 }
 .utc-1 {
-  background-color: var(--utc-color-0);
+  background-color: var(--utc-foliage-color-1);
+  color: var(--utc-foliage-color-0);
+  /* border: solid 1px var(--utc-foliage-color-1); */
 }
 .utc-2 {
-  background-color: var(--utc-color-1);
+  background-color: var(--utc-foliage-color-3);
+  color: var(--utc-foliage-color-0);
+  /* border: solid 1px var(--utc-foliage-color-0); */
 }
 .utc-7 {
-  background-color: var(--utc-color-2);
+  background-color: var(--utc-foliage-color-2);
+  color: var(--utc-foliage-color-3);
+  /* border: solid 1px var(--utc-foliage-color-3); */
 }
 .utc-8 {
-  background-color: var(--utc-color-3);
+  background-color: var(--utc-foliage-color-1);
+  color: var(--utc-foliage-color-6);
+  /* border: solid 1px var(--utc-foliage-color-6); */
 }
 .utc-9 {
-  background-color: var(--utc-color-4);
+  background-color: var(--utc-foliage-color-4);
+  color: var(--utc-foliage-color-2);
+  /* border: solid 1px var(--utc-foliage-color-2); */
 }
 .utc--3 {
-  background-color: var(--utc-color-5);
+  background-color: var(--utc-foliage-color-6);
+  color: var(--utc-foliage-color-0);
+  /* border: solid 1px var(--utc-foliage-color-0); */
 }
 .utc--5 {
-  background-color: var(--utc-color-6);
+  background-color: var(--utc-foliage-color-5);
+  color: var(--utc-foliage-color-4);
+  /* border: solid 1px var(--utc-foliage-color-4); */
 }
 .utc--7 {
-  background-color: var(--utc-color-7);
+  background-color: var(--utc-foliage-color-7);
+  color: var(--utc-foliage-color-8);
+  /* border: solid 1px var(--utc-foliage-color-8); */
 }
 .utc--8 {
-  background-color: var(--utc-color-8);
+  background-color: var(--utc-foliage-color-3);
+  color: var(--utc-foliage-color-2);
+  /* border: solid 1px var(--utc-foliage-color-2); */
 }
 .utc--9 {
-  background-color: var(--utc-color-9);
+  background-color: var(--utc-foliage-color-9);
+  color: var(--utc-foliage-color-2);
+  /* border: solid 1px var(--utc-foliage-color-2); */
 }
 .center-line {
+  z-index: 1;
   text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 h2 {
-  font-size: 1.75rem;
+  font-size: 1.375rem;
+  font-weight: 700;
   line-height: 1;
-  color: #111;
+  color: var(--utc-foliage-color-6);
+  width: 112px;
+  transition: all .6s;
 }
-.center-line > p {
-  font-size: .825rem;
+p {
+  display: none;
+  font-size: 1.375rem;
+  line-height: 1.1;
+  font-weight: 700;
+  transition: all .6s;
 }
 .bottom-line {
+  z-index: 1;
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
