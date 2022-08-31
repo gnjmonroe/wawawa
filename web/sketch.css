@@ -98,23 +98,35 @@ select {
   z-index: 2;
 }
 .back-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
   position: absolute;
-  top: 1rem;
+  top: 2.5rem;
   left: 50%;
   transform: translate(-50%);
-  background-color: blue;
-  z-index: 5;
-  width: 8rem;
-  border-radius: 100%;
-  color: #FFFFA4;
-  background-color: #FF4730;
-  text-align: center;
-  font-size: 2rem;
-  font-weight: bold;
+  z-index: 2;
 }
-.back-button:hover {
-  background-color: #FFFFA4;
-  color: #FF4730;
+.back-button .bg-svg {
+  transform: translate(0px, 8px);
+  width: 60%;
+}
+.back-button .logotype {
+  transform: translate(0px, 2px);
+  width: 15%;
+}
+.back-button .bg-svg path {
+  fill: var(--utc-foliage-color-1);
+}
+.back-button .logotype path {
+  fill: var(--utc-foliage-color-2);
+}
+.back-button:hover .bg-svg path {
+  fill: var(--utc-foliage-color-2);
+}
+.back-button:hover .logotype path {
+  fill: var(--utc-foliage-color-1);
 }
 iframe {
   position: absolute;
@@ -130,29 +142,38 @@ iframe {
   justify-content: center;
   align-items: center;
 }
-.wa svg {
+.wa .bg-svg {
   transform: translate(0, 8px);
 }
-.wa path {
+.wa .bg-svg path {
   z-index: 0;
-  fill: #FF4730;
+  fill: var(--utc-foliage-color-1);
   transition: all .6s;
 }
+.logotype {
+  z-index: 1;
+  width: 20%;
+}
+.logotype path {
+  fill: var(--utc-foliage-color-2);
+}
 h1 {
-  color: #FFFFA4;
-  font-size: 1.5rem;
+  position: absolute;
+  color: transparent;
+  font-size: .0000001rem;
   font-weight: 700;
   transition: all .6s;
   z-index: 1;
 }
-.wa:hover path {
-  fill: #FFFFA4;
+.wa:hover .bg-svg path {
+  fill: var(--utc-foliage-color-2);
   stroke: none;
   stroke-width: 0;
 }
+.wa:hover .logotype path {
+  fill: var(--utc-foliage-color-1)
+}
 .wa:hover h1 {
-  color: #FF4730;
-  /* color: #FFFFA4; */
   user-select: none;
 }
 .to-domansa {
@@ -187,9 +208,6 @@ h1 {
   color: black;
 }
 test:hover path {
-  /* transform: translate(-60,0); */
-  /* d: path("m0,12 c0,-6.52055 5.47945,-12 12,-12 l216,0 c6.52055,0 12,5.47945 12,12 l0,111 c0,6.52055 -5.47945,12 -12,12 l-216,0 c-6.52055,0 -12,-5.47945 -12,-12z"); */
-  /* d: path("m0,12 l12,-12 l216,0 l12,12 l0,111 l-12,12 l-216,0 l-12,-12z"); */
   d: path("m0,0 l120,0 l120,0 l0,135 l-120,0 l-120,0z");
   fill: url(#img1);
 }
@@ -199,7 +217,7 @@ test:hover path {
   z-index: 0;
 }
 .bg-path {
-  fill: #FFFFA4;
+  fill: var(--utc-foliage-color-2);
   stroke-width: 1;
   transition: all .6s;
 }
@@ -211,86 +229,107 @@ test:hover path {
 .park[data-park-group="0"]:hover .bg-path {
   d: path("m0,0 l120,0 l120,0 l0,135 l-120,0 l-120,0z");
   fill: url(#bg-pattern-0);
+  filter: contrast(140%) brightness(90%);
 }
 .park[data-park-group="1"]:hover .bg-path {
   d: path("m0,0 l120,0 l120,0 l0,135 l-120,0 l-120,0z");
   fill: url(#bg-pattern-1);
+  filter: contrast(140%) brightness(90%);
 }
 .park[data-park-group="2"]:hover .bg-path {
   d: path("m0,0 l120,0 l120,0 l0,135 l-120,0 l-120,0z");
   fill: url(#bg-pattern-2);
+  filter: contrast(140%) brightness(90%);
 }
 .park[data-park-group="3"]:hover .bg-path {
   d: path("m0,0 l120,0 l120,0 l0,135 l-120,0 l-120,0z");
   fill: url(#bg-pattern-3);
+  filter: contrast(140%) brightness(90%);
 }
 .park[data-park-group="4"]:hover .bg-path {
   d: path("m0,0 l120,0 l120,0 l0,135 l-120,0 l-120,0z");
   fill: url(#bg-pattern-4);
+  filter: contrast(140%) brightness(90%);
 }
 .park[data-park-group="5"]:hover .bg-path {
   d: path("m0,0 l120,0 l120,0 l0,135 l-120,0 l-120,0z");
   fill: url(#bg-pattern-5);
+  filter: contrast(140%) brightness(90%);
 }
 .park[data-park-group="6"]:hover .bg-path {
   d: path("m0,0 l120,0 l120,0 l0,135 l-120,0 l-120,0z");
   fill: url(#bg-pattern-6);
+  filter: contrast(140%) brightness(90%);
 }
 .park[data-park-group="7"]:hover .bg-path {
   d: path("m0,0 l120,0 l120,0 l0,135 l-120,0 l-120,0z");
   fill: url(#bg-pattern-7);
+  filter: contrast(140%) brightness(90%);
 }
 .park[data-park-group="8"]:hover .bg-path {
   d: path("m0,0 l120,0 l120,0 l0,135 l-120,0 l-120,0z");
   fill: url(#bg-pattern-8);
+  filter: contrast(140%) brightness(90%);
 }
 .park[data-park-group="9"]:hover .bg-path {
   d: path("m0,0 l120,0 l120,0 l0,135 l-120,0 l-120,0z");
   fill: url(#bg-pattern-9);
+  filter: contrast(140%) brightness(90%);
 }
 .park[data-park-group="10"]:hover .bg-path {
   d: path("m0,0 l120,0 l120,0 l0,135 l-120,0 l-120,0z");
   fill: url(#bg-pattern-10);
+  filter: contrast(140%) brightness(90%);
 }
 .park[data-park-group="11"]:hover .bg-path {
   d: path("m0,0 l120,0 l120,0 l0,135 l-120,0 l-120,0z");
   fill: url(#bg-pattern-11);
+  filter: contrast(140%) brightness(90%);
 }
 .park[data-park-group="12"]:hover .bg-path {
   d: path("m0,0 l120,0 l120,0 l0,135 l-120,0 l-120,0z");
   fill: url(#bg-pattern-12);
+  filter: contrast(140%) brightness(90%);
 }
 .park[data-park-group="13"]:hover .bg-path {
   d: path("m0,0 l120,0 l120,0 l0,135 l-120,0 l-120,0z");
   fill: url(#bg-pattern-13);
+  filter: contrast(140%) brightness(90%);
 }
 .park[data-park-group="14"]:hover .bg-path {
   d: path("m0,0 l120,0 l120,0 l0,135 l-120,0 l-120,0z");
   fill: url(#bg-pattern-14);
+  filter: contrast(140%) brightness(90%);
 }
 .park[data-park-group="15"]:hover .bg-path {
   d: path("m0,0 l120,0 l120,0 l0,135 l-120,0 l-120,0z");
   fill: url(#bg-pattern-15);
+  filter: contrast(140%) brightness(90%);
 }
 .park[data-park-group="16"]:hover .bg-path {
   d: path("m0,0 l120,0 l120,0 l0,135 l-120,0 l-120,0z");
   fill: url(#bg-pattern-16);
+  filter: contrast(140%) brightness(90%);
 }
 .park[data-park-group="17"]:hover .bg-path {
   d: path("m0,0 l120,0 l120,0 l0,135 l-120,0 l-120,0z");
   fill: url(#bg-pattern-17);
+  filter: contrast(140%) brightness(90%);
 }
 .park[data-park-group="18"]:hover .bg-path {
   d: path("m0,0 l120,0 l120,0 l0,135 l-120,0 l-120,0z");
   fill: url(#bg-pattern-18);
+  filter: contrast(140%) brightness(90%);
 }
 .park[data-park-group="19"]:hover .bg-path {
   d: path("m0,0 l120,0 l120,0 l0,135 l-120,0 l-120,0z");
   fill: url(#bg-pattern-19);
+  filter: contrast(140%) brightness(90%);
 }
 .park[data-park-group="20"]:hover .bg-path {
   d: path("m0,0 l120,0 l120,0 l0,135 l-120,0 l-120,0z");
   fill: url(#bg-pattern-20);
+  filter: contrast(140%) brightness(90%);
 }
 main {
   display: flex;
@@ -325,7 +364,7 @@ main {
 }
 .park:hover h2,
 .park:hover p {
-  color: #fffa99;
+  color: var(--utc-foliage-color-0);
   background-color: transparent;
 }
 .park:hover h2 {
@@ -337,7 +376,7 @@ main {
 .park:hover .sun-status,
 .park:hover .local-time,
 .park:hover .coordinates {
-  color: #FFFFA4;
+  color: var(--utc-foliage-color-0);
   background-color: transparent;
   border: solid 1px transparent;
 }
@@ -406,52 +445,42 @@ main {
 .utc-1 {
   background-color: var(--utc-foliage-color-1);
   color: var(--utc-foliage-color-0);
-  /* border: solid 1px var(--utc-foliage-color-1); */
 }
 .utc-2 {
   background-color: var(--utc-foliage-color-3);
   color: var(--utc-foliage-color-0);
-  /* border: solid 1px var(--utc-foliage-color-0); */
 }
 .utc-7 {
   background-color: var(--utc-foliage-color-2);
   color: var(--utc-foliage-color-3);
-  /* border: solid 1px var(--utc-foliage-color-3); */
 }
 .utc-8 {
   background-color: var(--utc-foliage-color-1);
   color: var(--utc-foliage-color-6);
-  /* border: solid 1px var(--utc-foliage-color-6); */
 }
 .utc-9 {
   background-color: var(--utc-foliage-color-4);
   color: var(--utc-foliage-color-2);
-  /* border: solid 1px var(--utc-foliage-color-2); */
 }
 .utc--3 {
   background-color: var(--utc-foliage-color-6);
   color: var(--utc-foliage-color-0);
-  /* border: solid 1px var(--utc-foliage-color-0); */
 }
 .utc--5 {
   background-color: var(--utc-foliage-color-5);
   color: var(--utc-foliage-color-4);
-  /* border: solid 1px var(--utc-foliage-color-4); */
 }
 .utc--7 {
   background-color: var(--utc-foliage-color-7);
   color: var(--utc-foliage-color-8);
-  /* border: solid 1px var(--utc-foliage-color-8); */
 }
 .utc--8 {
   background-color: var(--utc-foliage-color-3);
   color: var(--utc-foliage-color-2);
-  /* border: solid 1px var(--utc-foliage-color-2); */
 }
 .utc--9 {
   background-color: var(--utc-foliage-color-9);
   color: var(--utc-foliage-color-2);
-  /* border: solid 1px var(--utc-foliage-color-2); */
 }
 .center-line {
   z-index: 1;
