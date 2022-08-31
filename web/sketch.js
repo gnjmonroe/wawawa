@@ -2,7 +2,7 @@ const timeTest = document.getElementById('time-test');
 const parks = Array.prototype.slice.call(document.getElementsByClassName('park'));
 const workingDate = new Date();
 
-const sunStatuses = parks.map(park => park.children[0].children[1].children[0]);
+const sunStatuses = parks.map(park => park.children[0].children[1].children[2]);
 const localTimes = parks.map(park => park.children[0].children[1].children[1]);
 
 const parkCoords = parks.map(park => [
