@@ -197,19 +197,19 @@ main {
   width: 15%;
 }
 .back-button .bg-svg path {
-  fill: var(--utc-foliage-color-1);
+  fill: #eb562c;
 }
 .back-button .logotype path {
-  fill: var(--utc-foliage-color-2);
+  fill: #fbc861;
 }
 .back-button:hover {
   cursor: pointer;
 }
 .back-button:hover .bg-svg path {
-  fill: var(--utc-foliage-color-2);
+  fill: #fbc861;
 }
 .back-button:hover .logotype path {
-  fill: var(--utc-foliage-color-1);
+  fill: #eb562c;
 }
 
 iframe {
@@ -561,4 +561,4 @@ p {
   transition: all 0.6s;
 }
 
-/*# sourceMappingURL=output.css.map */
+/*# sourceMappingURL=styles.css.map */

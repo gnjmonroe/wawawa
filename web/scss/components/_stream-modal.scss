@@ -27,21 +27,21 @@
   }
 
   & .bg-svg path {
-    fill: var(--utc-foliage-color-1);
+    fill: variables.$utc-foliage-color-1;
   }
 
   & .logotype path {
-    fill: var(--utc-foliage-color-2);
+    fill: variables.$utc-foliage-color-2;
   }
 
   &:hover {
     cursor: pointer;
 
     & .bg-svg path {
-      fill: var(--utc-foliage-color-2);
+      fill: variables.$utc-foliage-color-2;
     }
     & .logotype path {
-      fill: var(--utc-foliage-color-1);
+      fill: variables.$utc-foliage-color-1;
     }
   }
 }
