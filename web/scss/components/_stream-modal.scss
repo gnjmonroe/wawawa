@@ -1,0 +1,53 @@
+@use "../abstracts/variables";
+@use "../abstracts/mixins";
+
+.stream-modal {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  z-index: variables.$stream-modal;
+}
+
+.back-button {
+  @include mixins.centeredFlexContainer(row);
+  position: absolute;
+  top: 2.5rem;
+  left: 50%;
+  transform: translate(-50%);
+  z-index: variables.$back-button;
+
+  & .bg-svg {
+    transform: translate(0px, 8px);
+    width: 60%;
+  }
+
+  & .logotype {
+    transform: translate(0px, 2px);
+    width: 15%;
+  }
+
+  & .bg-svg path {
+    fill: var(--utc-foliage-color-1);
+  }
+
+  & .logotype path {
+    fill: var(--utc-foliage-color-2);
+  }
+
+  &:hover {
+    cursor: pointer;
+
+    & .bg-svg path {
+      fill: var(--utc-foliage-color-2);
+    }
+    & .logotype path {
+      fill: var(--utc-foliage-color-1);
+    }
+  }
+}
+
+iframe {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}

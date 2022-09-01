@@ -1,0 +1,32 @@
+@use "../abstracts/mixins";
+@use "../abstracts/variables";
+
+.to-domansa {
+  width: 18rem;
+  height: 10rem;
+  @include mixins.centeredFlexContainer(column);
+}
+#domansa-svg {
+  transform: translate(0, 8px);
+  position: absolute;
+  z-index: variables.$domansa-svg;
+}
+.to-domansa {
+  & path {
+    fill: black;
+    transition: all 0.6s;
+  }
+  & p {
+    display: block;
+    color: #fff;
+    z-index: variables.$to-domansa-p;
+  }
+  &:hover {
+    path {
+      fill: #fff;
+    }
+    p {
+      color: black;
+    }
+  }
+}

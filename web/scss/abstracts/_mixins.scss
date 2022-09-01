@@ -1,0 +1,81 @@
+@use "../abstracts/variables";
+
+%bgc-utc-foliage-color-0 {
+  background-color: variables.$utc-foliage-color-0;
+}
+%bgc-utc-foliage-color-1 {
+  background-color: variables.$utc-foliage-color-1;
+}
+%bgc-utc-foliage-color-2 {
+  background-color: variables.$utc-foliage-color-2;
+}
+%bgc-utc-foliage-color-3 {
+  background-color: variables.$utc-foliage-color-3;
+}
+%bgc-utc-foliage-color-4 {
+  background-color: variables.$utc-foliage-color-4;
+}
+%bgc-utc-foliage-color-5 {
+  background-color: variables.$utc-foliage-color-5;
+}
+%bgc-utc-foliage-color-6 {
+  background-color: variables.$utc-foliage-color-6;
+}
+%bgc-utc-foliage-color-7 {
+  background-color: variables.$utc-foliage-color-7;
+}
+%bgc-utc-foliage-color-8 {
+  background-color: variables.$utc-foliage-color-8;
+}
+%bgc-utc-foliage-color-9 {
+  background-color: variables.$utc-foliage-color-9;
+}
+
+%c-utc-foliage-color-0 {
+  color: variables.$utc-foliage-color-0;
+}
+%c-utc-foliage-color-1 {
+  color: variables.$utc-foliage-color-1;
+}
+%c-utc-foliage-color-2 {
+  color: variables.$utc-foliage-color-2;
+}
+%c-utc-foliage-color-3 {
+  color: variables.$utc-foliage-color-3;
+}
+%c-utc-foliage-color-4 {
+  color: variables.$utc-foliage-color-4;
+}
+%c-utc-foliage-color-5 {
+  color: variables.$utc-foliage-color-5;
+}
+%c-utc-foliage-color-6 {
+  color: variables.$utc-foliage-color-6;
+}
+%c-utc-foliage-color-7 {
+  color: variables.$utc-foliage-color-7;
+}
+%c-utc-foliage-color-8 {
+  color: variables.$utc-foliage-color-8;
+}
+%c-utc-foliage-color-9 {
+  color: variables.$utc-foliage-color-9;
+}
+
+@mixin changeParkBgSvgShape($park-group) {
+  d: path("m0,0 l120,0 l120,0 l0,135 l-120,0 l-120,0z");
+  fill: url(#bg-pattern-#{$park-group});
+  filter: contrast(140%) brightness(90%);
+}
+
+@mixin setUtcColors($park-group-bg, $park-group-text) {
+  @extend %bgc-utc-foliage-color-#{$park-group-bg};
+  @extend %c-utc-foliage-color-#{$park-group-text};
+}
+
+@mixin centeredFlexContainer($flex-direction) {
+  display: flex;
+  flex-direction: $flex-direction;
+  justify-content: center;
+  align-items: center;
+}

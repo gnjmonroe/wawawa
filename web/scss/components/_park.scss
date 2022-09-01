@@ -1,0 +1,192 @@
+@use "../abstracts/mixins";
+@use "../abstracts/variables";
+
+.park {
+  @include mixins.centeredFlexContainer(column);
+  width: 18rem;
+  height: 10rem;
+
+  &:hover {
+    cursor: pointer;
+
+    & .bg-svg {
+      width: 18rem;
+      height: 10rem;
+      transform: translate(-8px, -8px);
+    }
+
+    & h2,
+    & p {
+      background-color: transparent;
+    }
+
+    & h2 {
+      display: none;
+    }
+
+    & p {
+      display: block;
+    }
+
+    & .sun-status,
+    & .local-time,
+    & .coordinates {
+      background-color: transparent;
+      border: solid 1px transparent;
+    }
+
+    & .top-line,
+    & .bottom-line {
+      padding: 0;
+    }
+  }
+}
+
+@for $i from 0 through 20 {
+  .park[data-park-group="#{$i}"]:hover .bg-path {
+    @include mixins.changeParkBgSvgShape($i);
+  }
+}
+
+.rounded-outline {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  padding: 0.5rem;
+  transition: all 0.6s, background-image 1s;
+}
+
+.bg-svg {
+  z-index: variables.$bg-svg;
+  position: absolute;
+  transform: translate(16px, 12px);
+}
+
+.bg-path {
+  fill: variables.$utc-foliage-color-2;
+  transition: all 0.6s;
+}
+
+.top-line {
+  z-index: variables.$top-line;
+  display: flex;
+  flex-direction: row;
+  gap: 0.25rem;
+  padding-left: 2rem;
+  transition: all 0.6s;
+}
+
+.badge,
+.sun-status {
+  background-color: transparent;
+  padding: 0px 4px;
+  width: fit-content;
+  border-radius: 3px;
+}
+
+.local-time,
+.coordinates {
+  background-color: variables.$utc-foliage-color-0;
+  border: solid 1px variables.$utc-foliage-color-6;
+}
+
+.sun-status {
+  min-width: 1.5rem;
+}
+
+.sun-up {
+  @include mixins.centeredFlexContainer(column);
+  background: #ffffd1;
+  background: linear-gradient(
+    0deg,
+    rgba(255, 255, 209, 1) 0%,
+    rgba(244, 222, 110, 1) 100%
+  );
+}
+
+.sun-up circle {
+  fill: #f45a07;
+}
+
+.sun-up line {
+  stroke: #f45a07;
+}
+
+.sun-down {
+  @include mixins.centeredFlexContainer(column);
+  background: rgb(146, 109, 201);
+  background: linear-gradient(
+    0deg,
+    rgba(146, 109, 201, 1) 0%,
+    rgba(37, 69, 117, 1) 100%
+  );
+}
+
+.sun-down path {
+  fill: #feffb4;
+}
+
+.sun-golden {
+  background-color: #ffbb00;
+  border: solid 1px #ff4730;
+}
+
+.center-line {
+  z-index: variables.$center-line;
+  @include mixins.centeredFlexContainer(row);
+}
+
+h2 {
+  width: 112px; // magic number to fit text in shape
+  transition: all 0.6s;
+}
+
+p {
+  display: none;
+  transition: all 0.6s;
+}
+
+.bottom-line {
+  z-index: variables.$bottom-line;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  width: 100%;
+  padding-right: 1rem;
+  transition: all 0.6s;
+}
+
+.badge {
+  &.utc-1 {
+    @include mixins.setUtcColors(1, 0);
+  }
+  &.utc-2 {
+    @include mixins.setUtcColors(3, 0);
+  }
+  &.utc-7 {
+    @include mixins.setUtcColors(2, 3);
+  }
+  &.utc-8 {
+    @include mixins.setUtcColors(1, 6);
+  }
+  &.utc-9 {
+    @include mixins.setUtcColors(4, 2);
+  }
+  &.utc--3 {
+    @include mixins.setUtcColors(6, 0);
+  }
+  &.utc--5 {
+    @include mixins.setUtcColors(5, 4);
+  }
+  &.utc--7 {
+    @include mixins.setUtcColors(7, 8);
+  }
+  &.utc--8 {
+    @include mixins.setUtcColors(3, 2);
+  }
+  &.utc--9 {
+    @include mixins.setUtcColors(9, 2);
+  }
+}
