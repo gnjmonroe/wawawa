@@ -173,27 +173,26 @@ function logTimeSunriseSunset(apiData) {
 }
 
 async function getApiData() {
-  // call API
   const promiseArray = [];
   const apiData = await callApi(promiseArray);
-  // do sun-status stuff here
-  logTimeSunriseSunset(apiData);
+  logTimeSunriseSunset(apiData); // do sun-status stuff here
 }
 
-// format local-time span
-function utcToNumber(utcString) {
+// converts from str to num (assumes single-digit offsets)
+function utcOffsetToNumber(utcString) {
   if (utcString[0] === "-") {
     return Number(utcString[1]) * -1;
   }
   return Number(utcString[1]);
 }
 
-function calcHours(hourNum, dst) {
+function calcHoursForDst(hourNum, dst) {
   const dstAdjustedHourNum = dst === "true" ? hourNum + 1 : hourNum;
   if (dstAdjustedHourNum < 0) return 24 + dstAdjustedHourNum;
   return dstAdjustedHourNum;
 }
 
+// adds leading zeros where needed
 function formatMinutes(minuteNum) {
   if (minuteNum === 0) return "00";
   if (minuteNum > 0 && minuteNum < 10) return `0${minuteNum}`;
@@ -203,8 +202,11 @@ function formatMinutes(minuteNum) {
 function setLocalTime() {
   const gmt = new Date();
   parks.forEach((park, i) => {
-    const utc = utcToNumber(park.dataset.utc);
-    const hour = calcHours(gmt.getUTCHours() + utc, park.dataset.dst);
+    const utcOffset = utcOffsetToNumber(park.dataset.utc);
+    const hour = calcHoursForDst(
+      gmt.getUTCHours() + utcOffset,
+      park.dataset.dst
+    );
     const minute = formatMinutes(gmt.getUTCMinutes());
     const timeString = `${hour}:${minute}`;
     localTimes[i].textContent = timeString;
