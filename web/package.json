@@ -14,7 +14,7 @@
     "typescript": "^4.8.2"
   },
   "scripts": {
-    "scss-watch": "sass --watch scss/main.scss build/styles.css",
+    "scss-watch": "sass --watch scss/main.scss styles.css",
     "ts-watch": "npx tsc -w",
     "scss-ts": "npm-run-all --parallel scss-watch ts-watch"
   }
