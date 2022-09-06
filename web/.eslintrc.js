@@ -5,11 +5,12 @@ module.exports = {
   },
   extends: "airbnb-base",
   overrides: [],
+  parser: "@typescript-eslint/parser",
   parserOptions: {
     ecmaVersion: "latest",
   },
   rules: {
     "linebreak-style": ["error", "windows"],
-    quotes: "single",
+    quotes: ["error", "double"],
   },
 };
