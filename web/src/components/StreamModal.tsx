@@ -63,6 +63,7 @@ export default function StreamModal(props: {
       // if stream is unopened, use YouTube API to init stream
       // else, just play the stream
       if (localPlayerInitCount.current[currentId] === 0) {
+        // @ts-ignore
         players.current[currentId] = new YT.Player(`stream${currentId}`, {
           events: {
             onReady: onPlayerReady,
