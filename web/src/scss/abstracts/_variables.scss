@@ -1,0 +1,33 @@
+$utc-foliage-color-0: #ffffa4;
+$utc-foliage-color-1: #eb562c;
+$utc-foliage-color-2: #fbc861;
+$utc-foliage-color-3: #491c1d;
+$utc-foliage-color-4: #b6482d;
+$utc-foliage-color-5: #321514;
+$utc-foliage-color-6: #7d301d;
+$utc-foliage-color-7: #fad79f;
+$utc-foliage-color-8: #ad292a;
+$utc-foliage-color-9: #9a1c25;
+
+// ----------
+// Z-INDEX
+// ----------
+
+// components/_park
+$bg-svg: 0;
+$top-line: 1;
+$center-line: 1;
+$bottom-line: 1;
+
+// components/_stream-modal
+$stream-modal: 2;
+$back-button: 2;
+
+// components/_wa-icon
+$logotype: 1;
+$h1: 1;
+$bg-svg-path: 0;
+
+// components/_domansa-icon
+$domansa-svg: 0;
+$to-domansa-p: 1;
