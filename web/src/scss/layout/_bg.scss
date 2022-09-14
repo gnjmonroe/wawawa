@@ -5,8 +5,8 @@ main {
   gap: 1rem;
   padding: 2rem;
   height: 100%;
-  background: url("bg-4-o70.png"); // for build
-  // background: url("assets/bg-4-o70.png"); // for dev
+  background: url("bg-4-o70.jpg"); // for build
+  // background: url("assets/bg-4-o70.jpg"); // for dev
   background-size: cover;
   @include mixins.centeredFlexContainer(row);
 }
