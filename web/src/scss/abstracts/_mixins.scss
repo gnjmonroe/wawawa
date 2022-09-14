@@ -79,3 +79,7 @@
   justify-content: center;
   align-items: center;
 }
+
+@mixin standardTransition() {
+  transition: all 0.6s;
+}

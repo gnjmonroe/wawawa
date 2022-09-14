@@ -1,3 +1,17 @@
+@use "../abstracts/mixins";
+@use "../abstracts/variables";
+
 .hidden {
   display: none;
+}
+
+.big-icon {
+  width: variables.$svg-icon-width;
+  height: variables.$svg-icon-height;
+  @include mixins.centeredFlexContainer(column);
+}
+
+.bg-svg {
+  position: absolute;
+  z-index: variables.$bg-svg;
 }

@@ -1,0 +1,68 @@
+@use "../abstracts/mixins";
+@use "../abstracts/variables";
+
+.big-icon .bg-svg {
+  transform: translate(0, 8px); // manual adjust
+}
+
+.bg-path {
+  z-index: variables.$bg-svg-path;
+  fill: variables.$utc-foliage-color-1;
+  @include mixins.standardTransition;
+}
+
+.logotype {
+  enable-background: "new 0 0 64.54 57.24";
+  width: 20%; // hack to match design intent/request
+  z-index: variables.$logotype;
+
+  &-path {
+    fill: variables.$utc-foliage-color-2;
+  }
+}
+
+h1 {
+  z-index: variables.$h1;
+  position: absolute;
+  @include mixins.standardTransition;
+}
+
+.wa:hover {
+  .bg-path {
+    fill: variables.$utc-foliage-color-2;
+    stroke: none;
+    stroke-width: 0;
+  }
+
+  .logotype-path {
+    fill: variables.$utc-foliage-color-1;
+  }
+
+  h1 {
+    user-select: none;
+  }
+}
+
+.to-domansa {
+  svg {
+    position: absolute;
+    z-index: variables.$domansa-svg;
+  }
+  path {
+    fill: variables.$domansa-svg-primary;
+    @include mixins.standardTransition;
+  }
+  p {
+    display: block;
+    color: variables.$domansa-svg-secondary;
+    z-index: variables.$to-domansa-p;
+  }
+  &:hover {
+    path {
+      fill: variables.$domansa-svg-secondary;
+    }
+    p {
+      color: variables.$domansa-svg-primary;
+    }
+  }
+}

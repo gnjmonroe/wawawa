@@ -2,35 +2,41 @@
 @use "../abstracts/variables";
 
 .park {
-  @include mixins.centeredFlexContainer(column);
-  width: 18rem;
-  height: 10rem;
+  .bg-path {
+    transform: translate(16px, 4px); // aligns park svgs with main svgs
+    fill: variables.$utc-foliage-color-2;
+    @include mixins.standardTransition;
+  }
 
-  &:hover {
+  :hover {
     cursor: pointer;
 
-    & .bg-svg {
-      width: 18rem;
-      height: 10rem;
+    .bg-svg {
+      width: variables.$svg-icon-width;
+      height: variables.$svg-icon-height;
       transform: translate(-8px, -8px);
     }
 
-    & h2,
-    & p {
+    .bg-path {
+      transform: translate(0, 0);
+    }
+
+    h2,
+    p {
       background-color: transparent;
     }
 
-    & h2 {
+    h2 {
       display: none;
     }
 
-    & p {
+    p {
       display: block;
     }
 
-    & .sun-status,
-    & .local-time,
-    & .coordinates {
+    .sun-status,
+    .local-time,
+    .coordinates {
       background-color: transparent;
       border: solid 1px transparent;
     }
@@ -58,24 +64,13 @@
   transition: all 0.6s, background-image 1s;
 }
 
-.bg-svg {
-  z-index: variables.$bg-svg;
-  position: absolute;
-  transform: translate(16px, 12px);
-}
-
-.bg-path {
-  fill: variables.$utc-foliage-color-2;
-  transition: all 0.6s;
-}
-
 .top-line {
   z-index: variables.$top-line;
   display: flex;
   flex-direction: row;
   gap: 0.25rem;
   padding-left: 2rem;
-  transition: all 0.6s;
+  @include mixins.standardTransition;
 }
 
 .badge,
@@ -97,35 +92,35 @@
 }
 
 .sun-up {
-  @include mixins.centeredFlexContainer(column);
   background: #ffffd1;
   background: linear-gradient(
     0deg,
     rgba(255, 255, 209, 1) 0%,
     rgba(244, 222, 110, 1) 100%
   );
-}
+  @include mixins.centeredFlexContainer(column);
 
-.sun-up circle {
-  fill: #f45a07;
-}
+  circle {
+    fill: #f45a07;
+  }
 
-.sun-up line {
-  stroke: #f45a07;
+  line {
+    stroke: #f45a07;
+  }
 }
 
 .sun-down {
-  @include mixins.centeredFlexContainer(column);
   background: rgb(146, 109, 201);
   background: linear-gradient(
     0deg,
     rgba(146, 109, 201, 1) 0%,
     rgba(37, 69, 117, 1) 100%
   );
-}
+  @include mixins.centeredFlexContainer(column);
 
-.sun-down path {
-  fill: #feffb4;
+  path {
+    fill: #feffb4;
+  }
 }
 
 .sun-golden {
@@ -140,22 +135,22 @@
 
 h2 {
   width: 112px; // magic number to fit text in shape
-  transition: all 0.6s;
+  @include mixins.standardTransition;
 }
 
 p {
   display: none;
-  transition: all 0.6s;
+  @include mixins.standardTransition;
 }
 
 .bottom-line {
-  z-index: variables.$bottom-line;
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
   width: 100%;
   padding-right: 1rem;
-  transition: all 0.6s;
+  z-index: variables.$bottom-line;
+  @include mixins.standardTransition;
 }
 
 .badge {

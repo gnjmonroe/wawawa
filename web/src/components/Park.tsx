@@ -34,6 +34,8 @@ export default function Park(props: {
   function formatHourString(hour: number, dstProp:boolean): string {
     const dstAdjustedHour = dstProp === true ? hour + 1 : hour;
     if (dstAdjustedHour < 0) return String(24 + dstAdjustedHour);
+    if (dstAdjustedHour === 24) return '0';
+    if (dstAdjustedHour > 24) return String(dstAdjustedHour - 24);
     return String(dstAdjustedHour);
   }
   function formatMinuteString(minute: number): string {
@@ -81,6 +83,7 @@ export default function Park(props: {
   }
   const formattedCoordinateString = formatCoordinateStrings(lat, lng);
 
+  // handle click and set proper states for YouTube embed interactivity
   function handleClick(e: any) {
     setCurrentId(e.target.dataset.parkGroup);
     if (streamOpen) setStreamOpen(false);
@@ -88,7 +91,7 @@ export default function Park(props: {
   }
 
   return (
-    <div className="park" data-park-group={parkGroup} onClick={handleClick}>
+    <div className="big-icon park" data-park-group={parkGroup} onClick={handleClick}>
       <div className="rounded-outline" id={`outline-${parkGroup}`} data-park-group={parkGroup}>
         <ParkSvg parkGroup={parkGroup} data-park-group={parkGroup} />
         <div className="top-line" data-park-group={parkGroup}>

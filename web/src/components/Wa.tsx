@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function Wa() {
   return (
-    <div className="wa">
+    <div className="big-icon wa">
       <svg className="bg-svg" width="240" height="135" viewBox="0 0 240 135" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
         <path className="bg-path" d="M100,0 L60,40 L60,120 L140,120 L180,80 L180,0z" />
       </svg>
@@ -15,7 +15,9 @@ export default function Wa() {
         viewBox="0 0 64.54 57.24"
         xmlSpace="preserve"
       >
-        <path d="M62.73,53.5
+        <path
+          className="logotype-path"
+          d="M62.73,53.5
               c0.98,0,1.47-0.5,1.47-1.51v-4.97c0-1.01-0.49-1.51-1.47-1.51h-6.65c-0.98,0-1.47,0.5-1.47,1.51v4.97c0,1.01,0.49,1.51,1.47,1.51
               H62.73z M63.33,41.76l1.21-19.08V0.58H54.6v22.1l1.3,19.08H63.33z M10.71,12.46c0-1.77,0.56-3.02,1.68-3.74s2.26-1.08,3.41-1.08
               c0.57,0,1.15,0.08,1.73,0.25c0.58,0.17,1.11,0.44,1.6,0.83c0.49,0.38,0.89,0.89,1.21,1.51c0.32,0.62,0.48,1.37,0.48,2.23v15.77

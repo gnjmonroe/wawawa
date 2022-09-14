@@ -9,38 +9,39 @@
 }
 
 .back-button {
-  @include mixins.centeredFlexContainer(row);
   position: absolute;
   top: 2.5rem;
   left: 50%;
   transform: translate(-50%);
   z-index: variables.$back-button;
+  @include mixins.centeredFlexContainer(row);
 
-  & .bg-svg {
+  .bg-svg {
     transform: translate(0px, 8px);
     width: 60%;
   }
 
-  & .logotype {
+  .logotype {
     transform: translate(0px, 2px);
     width: 15%;
   }
 
-  & .bg-svg path {
+  .bg-path {
     fill: variables.$utc-foliage-color-1;
   }
 
-  & .logotype path {
+  .logotype-path {
     fill: variables.$utc-foliage-color-2;
   }
 
   &:hover {
     cursor: pointer;
 
-    & .bg-svg path {
+    .bg-svg path {
       fill: variables.$utc-foliage-color-2;
     }
-    & .logotype path {
+
+    .logotype path {
       fill: variables.$utc-foliage-color-1;
     }
   }

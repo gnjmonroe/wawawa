@@ -44,12 +44,14 @@ p {
   text-align: center;
 }
 
-.park:hover h2,
-.park:hover p,
-.park:hover .sun-status,
-.park:hover .local-time,
-.park:hover .coordinates {
-  color: variables.$utc-foliage-color-0;
+.park:hover {
+  h2,
+  p,
+  .sun-status,
+  .local-time,
+  .coordinates {
+    color: variables.$utc-foliage-color-0;
+  }
 }
 
 .badge,
@@ -69,7 +71,7 @@ p {
 
 .sun-golden {
   color: #ff4730;
-  font-weight: bold;
+  font-weight: 700;
 }
 
 .local-time,
