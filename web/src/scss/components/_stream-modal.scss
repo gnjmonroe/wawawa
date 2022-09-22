@@ -11,8 +11,7 @@
 .back-button {
   position: absolute;
   top: 2.5rem;
-  left: 50%;
-  transform: translate(-50%);
+  left: -5.25rem;
   z-index: variables.$back-button;
   @include mixins.centeredFlexContainer(row);
 
