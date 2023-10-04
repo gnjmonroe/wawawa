@@ -14,6 +14,6 @@ module.exports = {
   },
   ignorePatterns: [".eslintrc.*"],
   rules: {
-    "linebreak-style": ["error", "windows"],
+    "linebreak-style": ["error", "unix"],
   },
 };
